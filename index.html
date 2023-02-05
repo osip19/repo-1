@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Основные команды при работе с  Git</title>
+</head>
+<body>
+	<div class="container">
+		<h3>Основные команды при работе с Git</h3>
+		<h4>Команды настройки программы</h4>
+		<div><span class="comm">git config --global</span> == глобальные настройки</div>
+		<div><span class="comm">git config --global</span> == глобальные настройки</div>
+		<div><span class="comm">git config --global user.name</span> == создание имени пользователя</div>
+		<div><span class="comm">git config --global user.email</span> == задание e-mail адреса пользователя</div>
+		<div><span class="comm">git config --list</span> == просмотр текущих настроек</div>
+		
+		
+		
+		<h4>Работа с Git</h4>
+		<div><span class="comm">git init</span> == инициализация нового репозитория в текущей папке</div>
+		<div><span class="comm">git status</span> == получить информацию о текущем состоянии репозитория</div>
+		<div><span class="comm">git reflog</span> == очень полезная команда, позволяет переместиться по истории изменений (почти в любом случае). кроме того наглядно показывает относительно чего были сделаны изменения - переход по ветке, переименование ветки, создание коммита и пр. Чтобы изменить нужное состояние, нужно запустить <span style="font-weight: bold;">checkout</span>, используя абсолютную (<span style="font-style: italic;">git checkout 1234568</span>) или относительную (<span style="font-style: italic;">git checkout HEAD@{3}</span>) ссылку</div>
+		<div><span class="comm">git log</span> == подробный лог коммитов</div>
+		<div><span class="comm">git log --oneline</span> == сокращенный лог коммиитов</div>
+		<div><span class="comm">git log -n 3 --oneline</span> == сокращенный лог последних трех коммитов (количество коммитов указывается вручную)</div>
+		<div><span class="comm">git log --oneline --decorate </span> == <span style="font-style: italic;">--oneline </span> сокращает количество занятых строк, а опция <span style="font-style: italic;">--decorate</span> добавляет относительные имена (локальные/удалённые ветви + HEAD)</div>
+		<div><span class="comm">git log --graph </span> == выведет график, показывающий структуру ветвления истории коммитов</div>
+		<div><span class="comm">git log -p</span> == подробный лог изменений КАЖДОГО файла</div>
+		<div><span class="comm">git diff</span> == просмотр списка изменений, внесенных в репозиторий</div>
+		<div><span class="comm">git diff --staged</span> == просмотр подготовленных изменений</div>
+		<div><span class="comm">git diff "name.*"</span> == подробный просмотр изменений в файле name.*</div>
+		<div><span class="comm">git add</span> == добавление файла в индекс отслеживания</div>
+		<div><span class="comm">git add .</span> == добавляет все файлы в индекс</div>
+		<div><span class="comm">git commit</span> == создание коммита (обязательно д.б. сообщение)</div>
+		<div><span class="comm">git commit -ad "comment"</span> == ДВА В ОДНОМ: добавляет файл в индекс и оставляет комментарий</div>
+		<div><span class="comm">git commit --amend -m "new_massage" </span> == перезаписывает комментарий последнего коммита (если допущена ошибка в сообщении, снимок коммита не меняется)</div>
+		<div><span class="comm">GIT RESET </span> == | С ЭТИМИ КОМАНДАМИ НАДО РАЗОБРАТЬСЯ</div>
+		<div><span class="comm">git revert </span> == отменяет действия прошлых коммитов, создавая новый, содержащий все отмененные изменения. (безопасный способ, используется в публичных ветвях, где изменение истории нежелательно)</div>
+		<div><span class="comm">git remote -v</span> == посмотреть статус соединения репозиториев</div>
+		<div><span class="comm">git remote add </span> == <span style="color: red">{{{{{(((дописать)))}}}}}</span></div>
+		<div><span class="comm">git push origin master </span> == отправить изменения в удаленный репозиторий</div>
+		<div><span class="comm">git pull </span> == подтягивает изменения в удаленном репозитории в локальный, на комп</div>
+		<div><span class="comm">git pull --verbose </span> == просмотреть подробные сведения о загруженных файлах</div>
+
+
+		<h4>Работа с ветками</h4>
+		<div><span class="comm">git branch</span> == посмотреть список веток</div>
+		<div><span class="comm">git branch "name"</span> == создание ветки name</div>
+		<div><span class="comm">git branch -d "name"</span> == удаление ветки name</div>
+		<div><span class="comm">git branch -D "name"</span> == принудительное удаление ветки name, даже с не слитыми изменениями</div>
+		<div><span class="comm">git push origin --delete "name" </span> == удаление из удаленного репозитория ветки name</div>
+		<div><span class="comm">git branch -a (-r)</span> == показать список всех удаленных веток</div>
+		<div><span class="comm">git branch -m new_name</span> == переименовать текущую ветку</div>
+		<div><span class="comm">git checkout</span> == команда для переключения между ветками, коммитами</div>
+		<div><span class="comm">git checkout name_branch</span> == переход к ветке name_branch</div>
+		<div><span class="comm">git checkout -b name_branch</span> == СОЗДАТЬ и сразу ПЕРЕЙТИ на ветку name_branch</div>
+		<div><span class="comm">git merge "name" </span> == команда выполнит слияние текущей ветки с веткой name (произойдет вливание ветки name)</div>
+		<div><span class="comm">git merge --no-ff "name" </span> == команда объединит заданную ветку с основной и произведёт коммит слияния. Это необходимо для фиксации всех слияний в репозитории.</div>
+		<div><span class="comm">git merge --abort </span> == отмена слияния веток</div>
+		<div><span class="comm">git branch --merged </span> == список всех веток, соединенных с текущей</div>
+		<div><span class="comm">ls</span> == просмотр списка файлов</div>
+		<div><span class="comm">clear</span> == очистить экран</div>
+		<div><span class="comm">cd</span> == переход по директориям</div>
+		<div><span class="comm">cd ..</span>  == переход на уровень "выше" (пробел обязателен!)</div>
+		<div><span class="comm">cd ../.. </span>== переход на два уровня "выше"</div>
+		<div><span class="comm">cd "name"</span> == переход в папку с именем "name". Прим - должна находиться в текущей папке, в ином случае - указывать полный путь!</div>
+		<div><span class="comm">cd ~ </span> == переход в стартовую папку</div>
+		<div><span class="comm">mkdir "name"</span> == создание директории</div>
+		<div><span class="comm">touch "name.*" </span> == создание файла (* - расширение файла)</div>
+		<div><span class="comm">cp name_1.* name_2.* </span> == копировать файл name_1.* в новый файл name_2.*</div>
+		<div><span class="comm">mv name_1.* name_2.*</span> == переименовать name_1.* в name_2.*</div>
+		<div><span class="comm">? mv</span> также позволяет перемещать файлы, пока не понял как</div>
+		<div><span class="comm">rm</span> == удаление файлов и дирректорий</div>
+		<div><span class="comm"> rm "  .*" </span> == удаление всех файлов с расширением .*</div>
+		<div><span class="comm">echo "text" > name.*</span> == вносит текст text в файл name.*</div>
+		<div><span class="comm">cat name.*</span> == выводит содержимое файла name.* в консоль</div>
+	</div>
+</body>
+</html>

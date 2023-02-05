@@ -1,0 +1,22 @@
+.body{
+	margin: 0 auto;
+}
+.container {
+	width: 600px;
+	margin: 0 auto;
+	text-align: justify;
+	font-size: 1em;
+}
+.comm {
+	font-weight: bold;
+}
+h3{
+	color: red;
+	text-transform: uppercase;
+	text-align: center;
+}
+h4{
+	color: green;
+	font-style: italic;
+	text-align: center;
+}
